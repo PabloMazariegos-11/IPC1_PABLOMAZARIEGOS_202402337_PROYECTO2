@@ -1,0 +1,19 @@
+# Compilados
+*.class
+out/
+bin/
+build/
+target/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+nbproject/private/
+.classpath
+.project
+.settings/
+
+# SO
+.DS_Store
+Thumbs.db
