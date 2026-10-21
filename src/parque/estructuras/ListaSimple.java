@@ -80,4 +80,24 @@ public class ListaSimple<T> {
         }
         System.out.println("null");
     }
+        public void insertarAlInicio(T dato) {
+        NodoSimple<T> nuevo = new NodoSimple<>(dato);
+        nuevo.setSiguiente(cabeza);
+        cabeza = nuevo;
+        tamanio++;
+    }
+
+    public T eliminarPrimero() {
+        if (cabeza == null) {
+            return null;
+        }
+        T dato = cabeza.getDato();
+        cabeza = cabeza.getSiguiente();
+        tamanio--;
+        return dato;
+    }
+
+    public T verPrimero() {
+        return cabeza == null ? null : cabeza.getDato();
+    }
 }
