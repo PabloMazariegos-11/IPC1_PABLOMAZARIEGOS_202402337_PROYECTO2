@@ -1,0 +1,4 @@
+P111AAA|Toyota|Corolla|Rojo|Carro|R1
+P222BBB|Honda|Civic|Azul|Carro|R1
+P333CCC|Yamaha|FZ|Negro|Moto|R1
+P555EEE|Suzuki|Swift|Verde|Carro|R2

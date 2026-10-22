@@ -1,0 +1,2 @@
+R1|Ana Lopez|12|true
+R2|Luis Perez|7|false

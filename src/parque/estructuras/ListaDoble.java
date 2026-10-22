@@ -61,4 +61,25 @@ public class ListaDoble<T> {
         }
         System.out.println("null");
     }
+        public T obtener(int indice) {
+        if (indice < 0 || indice >= tamanio) {
+            return null;
+        }
+        NodoDoble<T> actual = cabeza;
+        for (int i = 0; i < indice; i++) {
+            actual = actual.getSiguiente();
+        }
+        return actual.getDato();
+    }
+
+    public T buscar(T dato) {
+        NodoDoble<T> actual = cabeza;
+        while (actual != null) {
+            if (actual.getDato().equals(dato)) {
+                return actual.getDato();
+            }
+            actual = actual.getSiguiente();
+        }
+        return null;
+    }
 }
