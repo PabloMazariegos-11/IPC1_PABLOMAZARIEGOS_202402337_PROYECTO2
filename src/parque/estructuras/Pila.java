@@ -22,4 +22,7 @@ public class Pila<T> {
     public int getTamanio() {
         return lista.getTamanio();
     }
+    public T ver(int posicion) {
+        return lista.obtener(posicion);
+    }
 }
