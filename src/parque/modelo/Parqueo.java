@@ -147,4 +147,12 @@ public class Parqueo {
         }
         return espacio.liberar();
     }
+
+        public synchronized String idEspacioDe(String placa) {
+        EspacioParqueo espacio = buscarPorPlaca(cabezaSocios, placa);
+        if (espacio == null) {
+            espacio = buscarPorPlaca(cabezaGeneral, placa);
+        }
+        return espacio == null ? null : espacio.getId();
+    }
 }
