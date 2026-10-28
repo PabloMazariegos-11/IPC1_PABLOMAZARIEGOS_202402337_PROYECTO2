@@ -155,4 +155,12 @@ public class Parqueo {
         }
         return espacio == null ? null : espacio.getId();
     }
+
+    public synchronized Vehiculo buscarVehiculo(String placa){
+        EspacioParqueo espacio = buscarPorPlaca(cabezaSocios, placa);
+        if (espacio == null) {
+            espacio = buscarPorPlaca(cabezaGeneral, placa);
+        }
+        return espacio == null ? null : espacio.getVehiculo();
+    }
 }

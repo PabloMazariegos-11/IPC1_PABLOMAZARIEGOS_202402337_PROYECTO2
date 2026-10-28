@@ -2,6 +2,8 @@ package parque.modelo;
 
 import parque.estructuras.ColaSegura;
 import parque.estructuras.ListaDoble;
+import java.io.IOException;
+import parque.persistencia.Persistencia;
 
 public class Residencial {
     private Parqueo parqueo = new Parqueo();
@@ -38,5 +40,36 @@ public class Residencial {
         return residentes;
     }
 
-    
+    public synchronized void cargarDatos(String rutaResidentes, String rutaVehiculos)
+        throws IOException{
+            residentes = Persistencia.cargar(rutaResidentes, rutaVehiculos);
+        }
+
+        public synchronized void guardarDatos(String rutaResidentes, String rutaVehiculos)
+        throws IOException{
+            Persistencia.guardar(residentes, rutaResidentes, rutaVehiculos);
+        }
+
+        public synchronized Vehiculo buscarVehiculoResidente(String placa) {
+            for (int i = 0; i < residentes.getTamanio(); i++) {
+                Vehiculo v = residentes.obtener(i).buscarVehiculo(placa);
+                if (v != null){
+                    return v;
+                }
+            }
+            return null;
+        }
+        
+        public boolean placaEnUso(String placa) {
+            if (parqueo.idEspacioDe(placa) != null) {
+                return true;
+            }
+            for (int i = 0; i < colaEntrada.getTamanio(); i++) {
+                Vehiculo v = colaEntrada.ver(i);
+                if ( v != null && v.getPlaca().equals(placa)) {
+                    return true;
+                }
+            }
+            return  buscarVehiculoResidente(placa) != null;
+        }
 }

@@ -2,8 +2,8 @@ package parque.modelo;
 
 public class EspacioParqueo {
     private String id;
-    private boolean ocupado;
-    private Vehiculo vehiculo;
+    private volatile boolean ocupado;
+    private volatile Vehiculo vehiculo;
     private String tipoEspacio;
 
     private EspacioParqueo siguiente;
